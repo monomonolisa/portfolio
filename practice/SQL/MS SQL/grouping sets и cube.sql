@@ -1,5 +1,5 @@
-/*Создать новую таблицу (отношение), в котором будет четыре атрибута: название бренда, название категории,
-название магазина (store_name) и четвертый - это сумма остатков всех товаров (их количество)*/
+/*РЎРѕР·РґР°С‚СЊ РЅРѕРІСѓСЋ С‚Р°Р±Р»РёС†Сѓ (РѕС‚РЅРѕС€РµРЅРёРµ), РІ РєРѕС‚РѕСЂРѕРј Р±СѓРґРµС‚ С‡РµС‚С‹СЂРµ Р°С‚СЂРёР±СѓС‚Р°: РЅР°Р·РІР°РЅРёРµ Р±СЂРµРЅРґР°, РЅР°Р·РІР°РЅРёРµ РєР°С‚РµРіРѕСЂРёРё,
+РЅР°Р·РІР°РЅРёРµ РјР°РіР°Р·РёРЅР° (store_name) Рё С‡РµС‚РІРµСЂС‚С‹Р№ - СЌС‚Рѕ СЃСѓРјРјР° РѕСЃС‚Р°С‚РєРѕРІ РІСЃРµС… С‚РѕРІР°СЂРѕРІ (РёС… РєРѕР»РёС‡РµСЃС‚РІРѕ)*/
 SELECT t3.brand_name, t4.category_name, t5.store_name, COUNT(t1.quantity) total
 INTO new_table
 FROM production.stocks t1
@@ -9,9 +9,9 @@ JOIN production.categories t4 ON t2.category_id = t4.category_id
 JOIN sales.stores t5 ON t1.store_id = t5.store_id
 GROUP BY t3.brand_name, t4.category_name, t5.store_name
 
-/*Пользуясь созаданной в п.1 таблицей, создать запрос, который выводит количество остатков на 
-всех складах (store), в том числе в разрезе по брендами категориям 
-Использовать grouping sets*/
+/*РџРѕР»СЊР·СѓСЏСЃСЊ СЃРѕР·Р°РґР°РЅРЅРѕР№ РІ Рї.1 С‚Р°Р±Р»РёС†РµР№, СЃРѕР·РґР°С‚СЊ Р·Р°РїСЂРѕСЃ, РєРѕС‚РѕСЂС‹Р№ РІС‹РІРѕРґРёС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ РѕСЃС‚Р°С‚РєРѕРІ РЅР° 
+РІСЃРµС… СЃРєР»Р°РґР°С… (store), РІ С‚РѕРј С‡РёСЃР»Рµ РІ СЂР°Р·СЂРµР·Рµ РїРѕ Р±СЂРµРЅРґР°Рј Рё РєР°С‚РµРіРѕСЂРёСЏРј 
+РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ grouping sets*/
 SELECT brand_name, category_name, SUM(total) AS total_quantity
 FROM new_table
 GROUP BY GROUPING SETS (
@@ -22,8 +22,9 @@ GROUP BY GROUPING SETS (
 )
 ORDER BY brand_name, category_name
 
-/*Выполнить п.2, но использовать CUBE*/
+/*Р’С‹РїРѕР»РЅРёС‚СЊ Рї.2, РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ CUBE*/
 SELECT brand_name, category_name, SUM(total) AS total_quantity
 FROM new_table
 GROUP BY CUBE(brand_name, category_name)
+
 ORDER BY brand_name, category_name
