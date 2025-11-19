@@ -25,6 +25,7 @@ I’m currently preparing for my first professional roles in IT as a **Junior Bu
 | **SQL quieres** | Various queries (JOINs, aggregations, subqueries) for data extraction | [`SQL`](https://github.com/monomonolisa/portfolio/tree/35b1aba8f667756beb8aeece274cb58bcf11f961/practice/SQL) |
 | **Python Scripts** | Data processing and visualization scripts using pandas, numpy, matplotlib | [`Python`](https://github.com/monomonolisa/portfolio/tree/35b1aba8f667756beb8aeece274cb58bcf11f961/practice/Python) |
 | **Impact Mapping** | Strategic planning tool to align features with business goals | [`Impact Mapping`](https://github.com/monomonolisa/portfolio/tree/35b1aba8f667756beb8aeece274cb58bcf11f961/practice/Impact%20Mapping) |
+**Business Analysis Tasks**| Solved cases: automation, use case, customer journey | [`Business Analysis Tasks`](https://github.com/monomonolisa/portfolio/tree/21e66060a30dd1f3a52c127cb4e137daa9dc9c10/practice/Business%20Analysis%20Tasks) |
 
 ## Learning & Growth
 - Studying: Karl Wiegers’ "Software Requirements"
